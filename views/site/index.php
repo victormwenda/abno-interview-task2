@@ -7,5 +7,5 @@ use app\database\DbWorker;
 $this->title = 'My Yii Application';
 ?>
 <div class="site-index">
-    <?php (new DbWorker())->getSchoolsArray(); ?>
+    <?php echo (new DbWorker())->getCurrentTimestamp(); ?>
 </div>

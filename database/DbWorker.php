@@ -38,8 +38,15 @@ class DbWorker
         foreach ($schoolsInfos as $schoolsInfo) {
             $data[$schoolsInfo["school_id"]] = $schoolsInfo['school_name'];
         }
-       return $data;
+        return $data;
     }
 
+    /**Return the current time stamp
+     * @return false|string
+     */
+    public function getCurrentTimestamp()
+    {
+        return date("Y-m-d h:i:s",time());
+    }
 
 }

@@ -2,12 +2,14 @@
 
 namespace app\controllers;
 
+
 use Yii;
 use app\models\Students;
 use app\models\StudentsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use app\database\DbWorker;
 
 /**
  * StudentsController implements the CRUD actions for Students model.
@@ -65,6 +67,8 @@ class StudentsController extends Controller
     {
         $model = new Students();
         $model->trashed = 0;
+        $model->create_time = (new DbWorker())->getCurrentTimestamp();
+        $model->last_modified = (new DbWorker())->getCurrentTimestamp();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->student_id]);
