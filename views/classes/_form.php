@@ -1,5 +1,7 @@
 <?php
 
+use app\database\DbWorker;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -12,7 +14,7 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'school_id')->textInput() ?>
+    <?= $form->field($model, 'school_id')->dropDownList((new DbWorker())->getSchoolsArray()) ?>
 
     <?= $form->field($model, 'class_name')->textInput(['maxlength' => true]) ?>
 

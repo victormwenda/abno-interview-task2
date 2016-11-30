@@ -65,7 +65,7 @@ class StudentsController extends Controller
     {
         $model = new Students();
         $model->trashed = 0;
-        
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->student_id]);
         } else {
