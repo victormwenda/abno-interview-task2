@@ -82,4 +82,12 @@ class DbWorker
         return date("Y-m-d h:i:s", time());
     }
 
+    public function getSchoolName($school_id)
+    {
+        $databaseUtils = new DatabaseUtils();
+        return (new Schools($databaseUtils))->getschool_name($school_id);
+    }
+
+  
+
 }

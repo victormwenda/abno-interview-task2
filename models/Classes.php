@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use app\database\DbWorker;
 
 /**
  * This is the model class for table "classes".
@@ -80,5 +81,10 @@ class Classes extends \yii\db\ActiveRecord
     public static function find()
     {
         return new ClassesQuery(get_called_class());
+    }
+
+    public function getSchoolName()
+    {
+        return (new DbWorker())->getSchoolName($this->school_id);
     }
 }
