@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use app\database\DbWorker;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Students */
@@ -12,7 +13,7 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'class_id')->textInput() ?>
+    <?= $form->field($model, 'class_id')->dropDownList((new DbWorker())->getClassesArray()) ?>
 
     <?= $form->field($model, 'firstname')->textInput(['maxlength' => true]) ?>
 

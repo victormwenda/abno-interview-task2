@@ -41,6 +41,19 @@ class DbWorker
         return $data;
     }
 
+    public function getClassesArray()
+    {
+        $databaseUtils = new DatabaseUtils();
+        $data = array();
+        $classes = new Classes($databaseUtils);
+        $schools = new Schools($databaseUtils);
+        $classesInfos = $classes->query_from_classes(array(), array());
+        foreach ($classesInfos as $classesInfo) {
+            $data[$classesInfo["class_id"]] = $classesInfo['class_name']." (" .$schools->getschool_name($classesInfo["school_id"]).") ";
+        }
+        return $data;
+    }
+
     /**Return the current time stamp
      * @return false|string
      */
