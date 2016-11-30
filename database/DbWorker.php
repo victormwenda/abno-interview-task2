@@ -110,4 +110,20 @@ class DbWorker
         return $this->getStudentName($student_id) . "  - " . $this->getStudentClassName($student_id);
     }
 
+    public function getStudentClassInfo($student_id)
+    {
+        $databaseUtils = new DatabaseUtils();
+        $classes = new Classes($databaseUtils);
+        $schools = new Schools($databaseUtils);
+        $students = new Students($databaseUtils);
+
+        $classId = $students->getclass_id($student_id);
+        $className = $classes->getclass_name($classId);
+
+        $schoolId = $classes->getschool_id($classId);
+        $schoolName = $schools->getschool_name($schoolId);
+
+        return $className . " ( " . $schoolName . ") ";
+    }
+
 }

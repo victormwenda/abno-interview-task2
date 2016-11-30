@@ -30,6 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             //'student_id',
             //'class_id',
+            'classInfo',
             'firstname',
             'lastname',
             //'create_time',

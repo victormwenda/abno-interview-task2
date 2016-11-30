@@ -2,7 +2,9 @@
 
 namespace app\models;
 
+use Codeception\Lib\Driver\Db;
 use Yii;
+use app\database\DbWorker;
 
 /**
  * This is the model class for table "students".
@@ -81,5 +83,10 @@ class Students extends \yii\db\ActiveRecord
     public static function find()
     {
         return new StudentsQuery(get_called_class());
+    }
+
+    public function getClassInfo()
+    {
+        return (new DbWorker())->getStudentClassInfo($this->student_id);
     }
 }
