@@ -65,6 +65,8 @@ class ClassPrefectsController extends Controller
     {
         $model = new ClassPrefects();
         $model->trashed = 0;
+        $model->role_start_date = date("Y-m-d h:i:s");
+        $model->role_end_date = "0000-00-00 00:00:00";
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->student_id]);

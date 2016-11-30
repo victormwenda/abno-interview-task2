@@ -49,7 +49,27 @@ class DbWorker
         $schools = new Schools($databaseUtils);
         $classesInfos = $classes->query_from_classes(array(), array());
         foreach ($classesInfos as $classesInfo) {
-            $data[$classesInfo["class_id"]] = $classesInfo['class_name']." (" .$schools->getschool_name($classesInfo["school_id"]).") ";
+            $data[$classesInfo["class_id"]] = $classesInfo['class_name'] . " (" . $schools->getschool_name($classesInfo["school_id"]) . ") ";
+        }
+        return $data;
+    }
+
+    public function getStudentsArray()
+    {
+        $databaseUtils = new DatabaseUtils();
+        $data = array();
+        $classes = new Classes($databaseUtils);
+        $schools = new Schools($databaseUtils);
+        $students = new Students($databaseUtils);
+        $studentsInfos = $students->query_from_students(array(), array());
+        foreach ($studentsInfos as $studentsInfo) {
+            $student_id = $studentsInfo['student_id'];
+            $class_id = $students->getclass_id($student_id);
+            $className = $classes->getclass_name($class_id);
+            $school_id = $classes->getschool_id($class_id);
+            $school_name = $schools->getschool_name($school_id);
+            $student_full_name = $studentsInfo['firstname'] . " " . $studentsInfo['lastname'];
+            $data[$student_id] = $student_full_name . " (" . $className . "->" . $school_name . ")";
         }
         return $data;
     }

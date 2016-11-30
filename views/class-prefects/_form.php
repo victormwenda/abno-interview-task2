@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
+use app\database\DbWorker;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\ClassPrefects */
@@ -12,7 +14,7 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'student_id')->textInput() ?>
+    <?= $form->field($model, 'student_id')->dropDownList((new DbWorker())->getStudentsArray()) ?>
 
     <?= $form->field($model, 'role_start_date')->textInput() ?>
 
