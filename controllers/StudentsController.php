@@ -67,8 +67,8 @@ class StudentsController extends Controller
     {
         $model = new Students();
         $model->trashed = 0;
-        $model->create_time = (new DbWorker())->getCurrentTimestamp();
-        $model->last_modified = (new DbWorker())->getCurrentTimestamp();
+        $model->create_time = date("Y-m-d h:i:s", time());
+        $model->last_modified = date("Y-m-d h:i:s", time());
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->student_id]);

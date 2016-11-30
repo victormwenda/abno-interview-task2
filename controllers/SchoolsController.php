@@ -9,6 +9,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use app\database\DbWorker;
+
 /**
  * SchoolsController implements the CRUD actions for Schools model.
  */
@@ -65,8 +66,8 @@ class SchoolsController extends Controller
     {
         $model = new Schools();
         $model->trashed = 0;
-        $model->create_time = (new DbWorker())->getCurrentTimestamp();
-        $model->last_modified = (new DbWorker())->getCurrentTimestamp();
+        $model->create_time = date("Y-m-d h:i:s", time());
+        $model->last_modified = date("Y-m-d h:i:s", time());
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->school_id]);
