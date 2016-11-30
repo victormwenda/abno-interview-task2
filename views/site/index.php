@@ -37,7 +37,7 @@ $this->title = 'My Yii Application';
         </div>
     </div>
     <div style="margin: 20px;"></div>
-    
+
     <div class="row">
         <div class="col-md-6">
             <div class="panel-primary">
