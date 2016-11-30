@@ -1,6 +1,6 @@
 <?php
 
-	namespace database\crud;
+	namespace app\database\crud;
  
 	use database\core\mysql\DatabaseUtils;
     use database\core\mysql\InvalidColumnValueMatchException;

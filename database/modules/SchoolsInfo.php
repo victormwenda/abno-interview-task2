@@ -1,8 +1,8 @@
 <?php 
 
-	namespace database\modules;
+	namespace app\database\modules;
 
-	use database\crud\Schools;
+	use app\database\crud\Schools;
 
 	/**
 	*  

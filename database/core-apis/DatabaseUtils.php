@@ -1,10 +1,10 @@
 <?php
 
-namespace database\core\mysql;
+namespace app\database\core\mysql;
 
 use Exception;
 
-use database\core\mysql\DatabaseConnection;
+use app\database\core\mysql\DatabaseConnection;
 
 /**
 * DatabaseException - Thrown whenever an Exception occurs

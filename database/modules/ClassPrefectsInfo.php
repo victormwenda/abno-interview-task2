@@ -1,8 +1,8 @@
 <?php 
 
-	namespace database\modules;
+	namespace app\database\modules;
 
-	use database\crud\ClassPrefects;
+	use app\database\crud\ClassPrefects;
 
 	/**
 	*  
