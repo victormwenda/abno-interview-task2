@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use app\database\DbWorker;
 
 /**
  * This is the model class for table "class_prefects".
@@ -64,5 +65,10 @@ class ClassPrefects extends \yii\db\ActiveRecord
     public static function find()
     {
         return new ClassPrefectsQuery(get_called_class());
+    }
+
+    public function getClassPrefect()
+    {
+        return (new DbWorker())->getClassPrefectInfo($this->student_id);
     }
 }

@@ -88,6 +88,26 @@ class DbWorker
         return (new Schools($databaseUtils))->getschool_name($school_id);
     }
 
-  
+    public function getStudentName($studentId)
+    {
+        $databaseUtils = new DatabaseUtils();
+        $students = new Students($databaseUtils);
+        return $students->getfirstname($studentId) . " " . $students->getlastname($studentId);
+    }
+
+    public function getStudentClassName($student_id)
+    {
+        $databaseUtils = new DatabaseUtils();
+        $students = new Students($databaseUtils);
+        $classes = new Classes($databaseUtils);
+        $classId = $students->getclass_id($student_id);
+        $className = $classes->getclass_name($classId);
+        return $className;
+    }
+
+    public function getClassPrefectInfo($student_id)
+    {
+        return $this->getStudentName($student_id) . "  - " . $this->getStudentClassName($student_id);
+    }
 
 }
