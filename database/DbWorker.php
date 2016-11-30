@@ -46,7 +46,7 @@ class DbWorker
      */
     public function getCurrentTimestamp()
     {
-        return date("Y-m-d h:i:s",time());
+        return date("Y-m-d h:i:s", time());
     }
 
 }
