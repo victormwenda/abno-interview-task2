@@ -1,8 +1,8 @@
 <?php
 
-namespace app\database\core\mysql;
+//namespace app\database\core\mysql;
 
-use mysqli;
+//use mysqli;
 
 /**
 *  DatabaseConnection class used to open a database connection to the server

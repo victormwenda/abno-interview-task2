@@ -6,11 +6,11 @@
  * Time: 1:40 PM
  */
 
-namespace app\database;
+//namespace app\database;
 
-use app\database\core\mysql\DatabaseActions;
+/*use app\database\core\mysql\DatabaseActions;
 use app\database\core\mysql\DatabaseConnection;
-use app\database\core\mysql\DatabaseUtils;
+use app\database\core\mysql\DatabaseUtils;*/
 
 use app\database\crud\Classes;
 use app\database\crud\ClassPrefects;
@@ -23,9 +23,9 @@ class DbWorker
 
     public function __construct()
     {
-        include '../database/core-apis/DatabaseActions.php';
-        include '../database/core-apis/DatabaseConnection.php';
-        include '../database/core-apis/DatabaseUtils.php';
+        if (!class_exists('DatabaseActions')) include '../database/core-apis/DatabaseActions.php';
+        if (!class_exists('DatabaseConnection')) include '../database/core-apis/DatabaseConnection.php';
+        if (!class_exists('DatabaseUtils')) include '../database/core-apis/DatabaseUtils.php';
 
     }
 
@@ -46,7 +46,7 @@ class DbWorker
      */
     public function getCurrentTimestamp()
     {
-        return date("Y-m-d h:i:s",time());
+        return date("Y-m-d h:i:s", time());
     }
 
 }

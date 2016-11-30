@@ -1,6 +1,6 @@
 <?php
 
-namespace app\database\core\mysql;
+//namespace app\database\core\mysql;
 
 /**
 *
