@@ -26,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'schoolName',
             'class_name',
-            'create_time',
+            //'create_time',
             'last_modified',
             // 'trashed',
 
