@@ -20,26 +20,26 @@ use app\database\crud\Students;
 class DbWorker
 {
 
-    private $databaseUtils;
 
     public function __construct()
     {
-        $this->databaseUtils = new DatabaseUtils();
+        include '../database/core-apis/DatabaseActions.php';
+        include '../database/core-apis/DatabaseConnection.php';
+        include '../database/core-apis/DatabaseUtils.php';
+
     }
 
-    public static function getSchoolsArray()
+    public function getSchoolsArray()
     {
+        $databaseUtils = new DatabaseUtils();
         $data = array();
-        $schools = new Schools(DbWorker::getDatabaseUtils());
+        $schools = new Schools($databaseUtils);
         $schoolsInfos = $schools->query_from_schools(array(), array());
         foreach ($schoolsInfos as $schoolsInfo) {
-            $data["school_id"] = $schoolsInfo['school_name'];
+            $data[$schoolsInfo["school_id"]] = $schoolsInfo['school_name'];
         }
-        var_dump($data);
+       return $data;
     }
 
-    public function getDatabaseUtils()
-    {
-        return $this->databaseUtils;
-    }
+
 }

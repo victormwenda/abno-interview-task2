@@ -47,7 +47,7 @@ class DatabaseUtils {
 
 	public function __destruct() {
 	}
-	public function __construct($host = "localhost", $user = "root", $password = "", $database = "sch-mgmt-sc") {
+	public function __construct($host = "localhost", $user = "root", $password = "", $database = "sch-mgmt-sys") {
 
 		$database_connection = new DatabaseConnection ( $host, $user, $password, $database );
 		
