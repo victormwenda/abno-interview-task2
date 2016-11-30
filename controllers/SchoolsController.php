@@ -64,6 +64,7 @@ class SchoolsController extends Controller
     public function actionCreate()
     {
         $model = new Schools();
+        $model->trashed = 0;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->school_id]);

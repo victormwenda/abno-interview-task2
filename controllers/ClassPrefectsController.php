@@ -64,6 +64,7 @@ class ClassPrefectsController extends Controller
     public function actionCreate()
     {
         $model = new ClassPrefects();
+        $model->trashed = 0;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->student_id]);
